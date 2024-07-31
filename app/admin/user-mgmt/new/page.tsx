@@ -13,7 +13,7 @@ import toast from "react-hot-toast"
 
 export default function DetailUserPage() {
     const [user, setUser]: any = useState({
-        nip: "",
+        no_karyawan: "",
         nama: "",
         email: "",
         password: "",
@@ -60,7 +60,7 @@ export default function DetailUserPage() {
         try {
             e.preventDefault()
             const form = {
-                nip: user.nip,
+                no_karyawan: user.no_karyawan,
                 nama: user.nama,
                 email: user.email,
                 password: user.password,
@@ -95,9 +95,9 @@ export default function DetailUserPage() {
                     <div className="flex flex-col gap-7">
                         <div className="flex justify-center items-center gap-7">
                             <Label className="text-md w-1/3">
-                                NIP
+                                No Karyawan
                             </Label>
-                            <Input className="text-md" id="nip" name="nip" onChange={handleChange} />
+                            <Input className="text-md" id="no_karyawan" name="no_karyawan" onChange={handleChange} />
                         </div>
                         <div className="flex justify-center items-center gap-7">
                             <Label className="text-md w-1/3">

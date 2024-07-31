@@ -17,7 +17,7 @@ export default function Header({ link, items }: IHeaderProps) {
                     <Link
                         href={link}
                     >
-                        <img src="/assets/logo-wpi.png" width={"45px"} />
+                        <img src="/assets/pbn.jpeg" width={"80px"} />
                     </Link>
                 </div>
                 <div className={cn("block lg:!hidden")}>

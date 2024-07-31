@@ -27,13 +27,13 @@ export default function page({ searchParams }: paramsProps) {
     
     const fetchUser = async () => {
         try {
-            const response = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/user" + `?limit=${limit}&offset=${offset}` + (name ? `&search=${name}` : '') + (role ? `&role=${role}` : '') + (divisi ? `&division=${divisi}` : '' ))
+            const response = await axios.get(process.env.NEXT_PUBLIC_API_URL + "/user/all" + `?limit=${limit}&offset=${offset}` + (name ? `&search=${name}` : '') + (role ? `&role=${role}` : '') + (divisi ? `&division=${divisi}` : '' ))
             const data = response.data.data
 
             setTotalData(response.data.total_data)
             setUser(data)
-        } catch (error) {
-            console.error("Fetch user error", error)
+        } catch (error: any) {
+            console.error("Fetch user error", error.message)
         }
     }
 

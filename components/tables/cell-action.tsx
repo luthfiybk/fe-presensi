@@ -93,7 +93,7 @@ export const CellAction = ({ data, link }: CellActionProps) => {
         <>
             <div className="flex flex-column md:flex-row gap-1 items-center justify-center">
                 {!editIcon && (
-                    <Button className="bg-cyan-500 hover:bg-cyan-300" onClick={() => router.push(`${link}/id/${data.id ?? (data as User).nip}`)}>
+                    <Button className="bg-cyan-500 hover:bg-cyan-300" onClick={() => router.push(`${link}/id/${data.id ?? (data as User).no_karyawan}`)}>
                         <EyeIcon className="h-3 w-3" />
                     </Button>
                 )}
@@ -113,7 +113,7 @@ export const CellAction = ({ data, link }: CellActionProps) => {
                     />
                 )}
                 {trashIcon && (
-                    <Button className="bg-red-500 hover:bg-red-400" onClick={(e) => handleDelete((data as User).nip || data.id, e)}>
+                    <Button className="bg-red-500 hover:bg-red-400" onClick={(e) => handleDelete((data as User).no_karyawan || data.id, e)}>
                         <Trash className="h-3 w-3" />
                     </Button>
                 )}

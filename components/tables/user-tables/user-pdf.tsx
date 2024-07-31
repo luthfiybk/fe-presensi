@@ -83,7 +83,7 @@ export const handlePrintUsers = ({data}: UserPdfProps) => {
                 ],
                 body:
                     data.map((user) => [
-                        user.nip || '',
+                        user.no_karyawan || '',
                         user.nama || '',
                         user.role || '',
                         user.divisi || '',

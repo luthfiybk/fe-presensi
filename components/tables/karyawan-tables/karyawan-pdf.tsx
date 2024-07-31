@@ -81,7 +81,7 @@ export const handlePrintKaryawan = ({ data }: KaryawanPdfProps) => {
                         ],
                         body: data.map((item, index) => [
                                 index + 1,
-                                item.nip || '',
+                                item.no_karyawan || '',
                                 item.nama || '',
                                 item.email || ''
                         ]),

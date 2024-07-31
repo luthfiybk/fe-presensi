@@ -46,9 +46,9 @@ export default function DetailPresensiPage() {
                 <div className="flex flex-col gap-7 w-3/4">
                     <div className="flex justify-start">
                         <Label className="text-md w-1/2">
-                            NIP
+                            No Karyawan
                         </Label>
-                        <Label className="text-md">{presensi?.[0]?.nip}</Label>
+                        <Label className="text-md">{presensi?.[0]?.no_karyawan}</Label>
                     </div>
                     <div className="flex justify-start">
                         <Label className="text-md w-1/2">
@@ -74,6 +74,12 @@ export default function DetailPresensiPage() {
                         </Label>
                         <Badge className={presensi?.[0]?.status === "Tepat Waktu" ? "bg-green-500" : presensi?.[0]?.status === "Terlambat" ? "bg-yellow-500" : 'bg-red-500'}>{presensi?.[0]?.status}</Badge>
                         {/* <Label className="text-md">{presensi?.[0]?.status}</Label> */}
+                    </div>
+                    <div className="flex justify-start">
+                        <Label className="text-md w-1/2">
+                            Foto
+                        </Label>
+                        <img src={presensi?.[0]?.photo_link} alt="foto" className="w-1/2" />
                     </div>
                     <div className="flex justify-start">
                         <Label className="text-md w-1/2">

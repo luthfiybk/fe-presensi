@@ -16,7 +16,7 @@ export default function DetailUserPage() {
     const [role, setRole]: any = useState([])
     const [divisi, setDivisi]: any = useState([])
     const [form, setForm]: any = useState([{
-        nip: "",
+        no_karyawan: "",
         nama: "",
         email: "",
         roleId: null,
@@ -25,7 +25,7 @@ export default function DetailUserPage() {
     const [divisiValue, setDivisiValue]: any = useState(null)
     const [selectedDivisiName, setSelectedDivisiName]: any = useState('')
 
-    const { nip } = useParams()
+    const { no_karyawan } = useParams()
     const router = useRouter()
 
     const fetchDivisi = async () => {
@@ -48,7 +48,7 @@ export default function DetailUserPage() {
 
     const fetchUser = async () => {
         try {
-            const response = await axios.get(process.env.NEXT_PUBLIC_API_URL + `/user/${nip}`)
+            const response = await axios.get(process.env.NEXT_PUBLIC_API_URL + `/user/${no_karyawan}`)
             setUser(response.data)
             setForm(response.data)
         } catch (error) {
@@ -70,14 +70,14 @@ export default function DetailUserPage() {
     const handleUpdate = async () => {
         try {
             const data = {
-                nip: form.nip,
+                no_karyawan: form.no_karyawan,
                 nama: form.nama,
                 email: form.email,
                 roleId: parseInt(form.roleId),
                 divisiId: parseInt(divisiValue) || null
             }
 
-            const response = await axios.put(process.env.NEXT_PUBLIC_API_URL + `/user/${nip}`, data)
+            const response = await axios.put(process.env.NEXT_PUBLIC_API_URL + `/user/${no_karyawan}`, data)
 
             toast.success('Berhasil mengupdate data user')
             router.push('/admin/user-mgmt')
@@ -102,9 +102,9 @@ export default function DetailUserPage() {
                     <div className="flex flex-col gap-7">
                         <div className="flex justify-center items-center gap-7">
                             <Label className="text-md w-1/3">
-                                NIP
+                                No Karyawan
                             </Label>
-                            <Input className="text-md" name="nip" defaultValue={user?.[0]?.nip} onChange={handleChange} />
+                            <Input className="text-md" name="nip" defaultValue={user?.[0]?.no_karyawan} onChange={handleChange} />
                         </div>
                         <div className="flex justify-center items-center gap-7">
                             <Label className="text-md w-1/3">

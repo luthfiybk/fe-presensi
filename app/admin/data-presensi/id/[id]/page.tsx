@@ -77,6 +77,12 @@ export default function DetailPresensiPage() {
                     </div>
                     <div className="flex justify-start">
                         <Label className="text-md w-1/2">
+                            Foto
+                        </Label>
+                        <img src={presensi?.[0]?.photo_link} alt="foto" className="w-1/2" />
+                    </div>
+                    <div className="flex justify-start">
+                        <Label className="text-md w-1/2">
                             Titik Absensi
                         </Label>
                         <Gmaps width="400px" height="200px" latitude={presensi?.[0]?.latitude} longitude={presensi?.[0]?.longitude} />

@@ -122,8 +122,8 @@ export const createDivisiColumns = () => {
 export const createPresensiColumns = (dynamicLink: string) => {
     const presensiColumns: ColumnDef<Presensi>[] = [
         {
-            accessorKey: "nip",
-            header: "NIP",
+            accessorKey: "no_karyawan",
+            header: "No Karyawan",
         },
         {
             accessorKey: "nama",
@@ -156,8 +156,8 @@ export const createPresensiColumns = (dynamicLink: string) => {
 export const createIzinColumns = (dynamicLink: string) => {
     const izinColumns: ColumnDef<Izin>[] = [
         {
-            accessorKey: "nip",
-            header: "NIP",
+            accessorKey: "no_karyawan",
+            header: "No Karyawan",
         },
         {
             accessorKey: "nama",
@@ -221,8 +221,8 @@ export const createTitikColumns = () => {
 export const createKaryawanColumns = (dynamicLink: string) => {
     const karyawanColumns: ColumnDef<User>[] = [
         {
-            accessorKey: "nip",
-            header: "NIP",
+            accessorKey: "no_karyawan",
+            header: "No Karyawan",
         },
         {
             accessorKey: "nama",

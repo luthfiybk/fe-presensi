@@ -3,7 +3,7 @@ import { NavItem, SidebarNavItem } from "@/types";
 
 export type User = {
     id: string;
-    nip: string
+    no_karyawan: string
     nama: string;
     email?: string;
     role?: string;
@@ -116,12 +116,12 @@ export const adminItems: NavItem[] = [
         icon: "page",
         label: "Data Presensi",
     },
-    {
-        title: "Master Status",
-        href: "/admin/master-status",
-        icon: "bookCopy",
-        label: "Master Status",
-    },
+    // {
+    //     title: "Master Status",
+    //     href: "/admin/master-status",
+    //     icon: "bookCopy",
+    //     label: "Master Status",
+    // },
     // {
     //     title: "Master Role",
     //     href: "/admin/master-role",
