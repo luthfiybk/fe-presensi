@@ -39,7 +39,7 @@ export const KaryawanClient = ({ data, path, searchParams, total_data }: Product
         <>
             <div className="flex items-start justify-between">
                 <Heading
-                    title={`Karyawan (${total_data})`}
+                    title={`Daftar Karyawan`}
                     // description="Manage users (Client side table functionalities.)"
                 />
                 <Button

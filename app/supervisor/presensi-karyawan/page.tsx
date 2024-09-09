@@ -53,7 +53,6 @@ export default function PresensiKaryawanPage({ searchParams }: paramsProps) {
     return (
         <>
             <div className="flex-1 space-y-4  p-4 md:p-8 pt-6">
-                <BreadCrumb items={[{ title: "Presensi Karyawan", link: "/supervisor/presensi-karyawan" }]} />
                 <PresensiClient data={presensi} path={pathname} searchParams={searchParams} total_data={totalData} />
             </div>
         </>

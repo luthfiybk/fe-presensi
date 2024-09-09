@@ -63,16 +63,11 @@ export default function PengajuanIzinPage() {
     return (
         <>
             <div className="flex-1 space-y-4  p-4 md:p-8 pt-6">
-                <BreadCrumb items={breadcrumbItems} />
                 <div className="flex max-w-full justify-start">
                     <div className="flex flex-col w-full gap-2 items-start">
                         <div className="flex flex-col w-full bg-white rounded-lg p-4 gap-3">
                             <h1 className="text-2xl font-bold text-center">Pengajuan Izin</h1>
                             <form onSubmit={handleSubmit} className="space-y-4">
-                                {/* <div className="flex flex-col gap-2">
-                                    <Label htmlFor="tanggal">Tanggal</Label>
-                                    <Input type="date" id="tanggal" name="tanggal" className="border-black" />
-                                </div> */}
                                 <div className="flex flex-col gap-2">
                                     <Label htmlFor="keterangan">Keterangan</Label>
                                     <Textarea id="keterangan" onChange={handleChange} name="keterangan" rows={4} className="border-black" />

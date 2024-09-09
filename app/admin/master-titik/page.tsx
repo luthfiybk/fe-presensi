@@ -39,7 +39,6 @@ export default function TitikPage({ searchParams }: paramsProps) {
     return (
         <>
             <div className="flex-1 space-y-4  p-4 md:p-8 pt-6">
-                <BreadCrumb items={breadcrumbItems} />
                 <TitikClient data={titik} searchParams={searchParams} total_data={totalData} />
             </div>
         </>

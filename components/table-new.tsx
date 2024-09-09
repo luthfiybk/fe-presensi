@@ -334,38 +334,6 @@ export function DataTable<TData, TValue>({
             </ScrollArea>
 
             <div className="flex flex-col items-center justify-end gap-2 space-x-2 py-4 sm:flex-row">
-                <div className="flex w-full items-center justify-between">
-                    {/* <div className="flex-1 text-sm text-muted-foreground">
-                        {table.getFilteredSelectedRowModel().rows.length} of{' '}
-                        {table.getFilteredRowModel().rows.length} row(s) selected.
-                    </div> */}
-                    <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-6 lg:gap-8">
-                        <div className="flex items-center space-x-2">
-                            <p className="whitespace-nowrap text-sm font-medium">
-                                Rows per page
-                            </p>
-                            <Select
-                                value={`${table.getState().pagination.pageSize}`}
-                                onValueChange={(value) => {
-                                    table.setPageSize(Number(value));
-                                }}
-                            >
-                                <SelectTrigger className="h-8 w-[70px]">
-                                    <SelectValue
-                                        placeholder={table.getState().pagination.pageSize}
-                                    />
-                                </SelectTrigger>
-                                <SelectContent side="top">
-                                    {pageSizeOptions.map((pageSize) => (
-                                        <SelectItem key={pageSize} value={`${pageSize}`}>
-                                            {pageSize}
-                                        </SelectItem>
-                                    ))}
-                                </SelectContent>
-                            </Select>
-                        </div>
-                    </div>
-                </div>
                 <div className="flex w-full items-center justify-between gap-2 sm:justify-end">
                     <div className="flex w-[100px] items-center justify-center text-sm font-medium">
                         Page {table.getState().pagination.pageIndex + 1} of{' '}

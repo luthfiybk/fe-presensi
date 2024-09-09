@@ -69,7 +69,7 @@ export const UserClient = ({ data, path, searchParams, total_data }: ProductsCli
         <>
             <div className="flex items-start justify-between">
                 <Heading
-                    title={`Users (${total_users})`}
+                    title={`Daftar User`}
                 />
                 <div className="space-x-3">
                     <Button

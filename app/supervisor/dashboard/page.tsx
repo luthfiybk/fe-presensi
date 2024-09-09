@@ -43,7 +43,6 @@ export default function DashboardPage() {
             <div className="flex-1 space-y-4 p-5 md:p-8 pt-16">
                 <div className="flex items-center justify-between space-y-2">
                     <h2 className="text-3xl font-bold tracking-tight">
-                        Hi, {name} 👋
                     </h2>
                 </div>
                 <Tabs defaultValue="overview" className="space-y-4">
@@ -61,16 +60,6 @@ export default function DashboardPage() {
                                     </CardContent>
                                 </Card>
                             ))}
-                        </div>
-                        <div className="flex max-w-full md:grid-cols-2 lg:grid-cols-7">
-                            <Card className="w-full">
-                                <CardHeader>
-                                    <CardTitle>Jam</CardTitle>
-                                </CardHeader>
-                                <CardContent className="flex justify-end">
-                                    <Clock format={'HH:mm:ss'} ticking={true} timezone={'Asia/Jakarta'} className="text-5xl font-extrabold" noSsr />
-                                </CardContent>
-                            </Card>
                         </div>
                     </TabsContent>
                 </Tabs>

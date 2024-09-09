@@ -70,7 +70,7 @@ export const PresensiClient = ({ data, path, searchParams, total_data }: Product
         <>
             <div className="flex items-start justify-between">
                 <Heading
-                    title={`Presensi  (${total_data})`}
+                    title={`Data Presensi`}
                     // description="Manage users (Client side table functionalities.)"
                 />
                 {path.includes('supervisor') && (

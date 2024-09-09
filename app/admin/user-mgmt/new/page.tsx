@@ -52,7 +52,7 @@ export default function DetailUserPage() {
     const handleValueChange = (value: any) => {
         const selectedDivisi = divisi.find((item: any) => item.id === parseInt(value))
         setDivisiValue(value)
-        setSelectedDivisiName(selectedDivisi?.nama_divisi || '')
+        setSelectedDivisiName(selectedDivisi?.nama || '')
         setUser({...user, divisiId: parseInt(value)})
     }
 

@@ -53,7 +53,6 @@ export default function IzinKaryawanPage({ searchParams }: paramsProps) {
     return (
         <>
             <div className="flex-1 space-y-4  p-4 md:p-8 pt-6">
-                <BreadCrumb items={[{ title: "Izin Karyawan", link: "/supervisor/izin-karyawan" }]} />
                 <IzinClient data={izin} path={pathname} searchParams={searchParams} total_data={totalData} />
             </div>
         </>

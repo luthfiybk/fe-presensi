@@ -36,7 +36,7 @@ export const TitikClient = ({ data, searchParams, total_data }: ProductsClientPr
         <>
             <div className="flex items-start justify-between">
                 <Heading
-                    title={`Titik  (${data.length})`}
+                    title={`Daftar Titik`}
                     // description="Manage users (Client side table functionalities.)"
                 />
                 <div className="space-x-3">

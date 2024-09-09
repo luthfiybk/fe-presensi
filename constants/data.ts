@@ -95,25 +95,25 @@ export const adminItems: NavItem[] = [
     {
         title: "Dashboard",
         href: "/admin/dashboard",
-        icon: "dashboard",
+        // icon: "dashboard",
         label: "Dashboard",
     },
     {
-        title: "User Management",
+        title: "Daftar User",
         href: "/admin/user-mgmt",
-        icon: "employee",
-        label: "User Management",
+        // icon: "employee",
+        label: "Daftar User",
     },
     {
         title: "Data Izin",
         href: "/admin/data-izin",
-        icon: "post",
+        // icon: "post",
         label: "Data Izin",
     },
     {
         title: "Data Presensi",
         href: "/admin/data-presensi",
-        icon: "page",
+        // icon: "page",
         label: "Data Presensi",
     },
     // {
@@ -129,16 +129,16 @@ export const adminItems: NavItem[] = [
     //     label: "Master Role"
     // },
     {
-        title: "Master Divisi",
+        title: "Daftar Divisi",
         href: "/admin/master-divisi",
         icon: "shieldHalf",
-        label: "Master Divisi"
+        label: "Daftar Divisi"
     },
     {
-        title: "Master Titik",
+        title: "Daftar Titik",
         href: "/admin/master-titik",
         icon: "mapPin",
-        label: "Master Titik"
+        label: "Daftar Titik"
     }
 ];
 
@@ -151,21 +151,21 @@ export const supervisorItems: NavItem[] = [
         label: "Dashboard",
     },
     {   
-        title: "Data Karyawan",
+        title: "Daftar Karyawan",
         href: "/supervisor/data-karyawan",
         icon: "employee",
-        label: "Data Karyawan",
+        label: "Daftar Karyawan",
     },
     {
         title: "Data Presensi Karyawan",
         href: "/supervisor/presensi-karyawan",
         icon: "login",
-        label: "Presensi",
+        label: "Data Presensi Karyawan",
     },
     {
         title: "Data Izin Karyawan",
         href: "/supervisor/izin-karyawan",
         icon: "page",
-        label: "Pengajuan Izin",
+        label: "Data Izin Karyawan",
     }
 ];

@@ -34,7 +34,7 @@ export const DivisiClient = ({ data, searchParams, total_data }: ProductsClientP
         <>
             <div className="flex items-start justify-between">
                 <Heading
-                    title={`Divisi  (${data.length})`}
+                    title={`Daftar Divisi`}
                     // description="Manage users (Client side table functionalities.)"
                 />
                 <div>

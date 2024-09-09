@@ -66,7 +66,7 @@ export const IzinClient = ({ data, path, searchParams, total_data }: ProductsCli
         <>
             <div className="flex items-start justify-between">
                 <Heading
-                    title={`Izin  (${total_data})`}
+                    title={`Data Izin`}
                     // description="Manage users (Client side table functionalities.)"
                 />
                 {path.includes('supervisor') && (

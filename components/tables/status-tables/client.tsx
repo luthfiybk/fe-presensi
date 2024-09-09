@@ -34,7 +34,7 @@ export const StatusClient = ({ data, searchParams }: ProductsClientProps) => {
         <>
             <div className="flex items-start justify-between">
                 <Heading
-                    title={`Status  (${data.length})`}
+                    title={`Daftar Status`}
                     // description="Manage users (Client side table functionalities.)"
                 />
                 <div className="space-x-3">
