@@ -10,6 +10,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import toast from "react-hot-toast";
 import Webcam from "react-webcam"
+import { Card, CardContent } from "@/components/ui/card";
 
 // const breadcrumbItems = [{ title: "Presensi", link: "/karyawan/presensi" }];
 export default function PresensiPage() {
@@ -102,38 +103,42 @@ export default function PresensiPage() {
             <div className="flex-1 h-full space-y-4 p-4 md:p-8 pt-6">
                 {/* <BreadCrumb items={breadcrumbItems} /> */}
                 <div className="flex w-full justify-center">
-                    <div className="flex flex-col gap-2 items-center" suppressHydrationWarning>
-                        <p>Jam</p>
-                        <Clock format={'HH:mm:ss'} ticking={true} timezone={'Asia/Jakarta'} noSsr={true}/>
-                        {/* <Gmaps width="400px" height="300px"/> */}
-                        {img === null ?  (
-                            <>
-                                <Webcam 
-                                    videoConstraints={videoConstraints}
-                                    mirrored={true}
-                                    className="w-2/3"
-                                    screenshotFormat="image/jpeg"
-                                    ref={webcamRef}
-                                />
-                                <Button onClick={capture} className="w-2/3 bg-green-500 hover:bg-green-400 mt-2">
-                                    Ambil Foto
-                                </Button>
-                            </>
-                        ) : (
-                            <img src={img} className="w-full" height={"100px"} width={"100px"}/>
-                        )}
-                        <form onSubmit={handleSubmit}>
-                            <input type="text" onChange={handleChange} value={latitude} className="w-2/3 bg-gray-200" id="latitude" hidden required/>
-                            <input type="text" onChange={handleChange} value={longitude} className="w-2/3 bg-gray-200" id="longitude" hidden required/>
-                        </form>
-                        {check.length === 0 && img !== null ? (
-                            <Button onClick={handleSubmit} className="w-full bg-green-500 hover:bg-green-400">
-                                Presensi Masuk
-                            </Button>
-                        ) : (
-                            <div></div>
-                        )}
-                    </div>
+                    <Card className="border-black rounded-2xl">
+                        <CardContent className="py-4">
+                            <div className="flex flex-col gap-2 items-center" suppressHydrationWarning>
+                                <p>Jam</p>
+                                <Clock format={'HH:mm:ss'} ticking={true} timezone={'Asia/Jakarta'} noSsr={true}/>
+                                {/* <Gmaps width="400px" height="300px"/> */}
+                                {img === null ?  (
+                                    <>
+                                        <Webcam 
+                                            videoConstraints={videoConstraints}
+                                            mirrored={true}
+                                            className="w-2/3"
+                                            screenshotFormat="image/jpeg"
+                                            ref={webcamRef}
+                                        />
+                                        <Button onClick={capture} className="w-2/3 bg-green-500 hover:bg-green-400 mt-2">
+                                            Ambil Foto
+                                        </Button>
+                                    </>
+                                ) : (
+                                    <img src={img} className="w-full" height={"100px"} width={"100px"}/>
+                                )}
+                                <form onSubmit={handleSubmit}>
+                                    <input type="text" onChange={handleChange} value={latitude} className="w-2/3 bg-gray-200" id="latitude" hidden required/>
+                                    <input type="text" onChange={handleChange} value={longitude} className="w-2/3 bg-gray-200" id="longitude" hidden required/>
+                                </form>
+                                {check.length === 0 && img !== null ? (
+                                    <Button onClick={handleSubmit} className="w-full bg-green-500 hover:bg-green-400">
+                                        Presensi Masuk
+                                    </Button>
+                                ) : (
+                                    <div></div>
+                                )}
+                            </div>
+                        </CardContent>
+                    </Card>
                 </div>
             </div>
         </>

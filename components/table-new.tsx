@@ -333,12 +333,12 @@ export function DataTable<TData, TValue>({
                 <ScrollBar orientation="horizontal" />
             </ScrollArea>
 
-            <div className="flex flex-col items-center justify-end gap-2 space-x-2 py-4 sm:flex-row">
-                <div className="flex w-full items-center justify-between gap-2 sm:justify-end">
-                    <div className="flex w-[100px] items-center justify-center text-sm font-medium">
+            <div className="flex flex-col items-center justify-center gap-2 space-x-2 py-4 sm:flex-row">
+                    <div className="flex w-[100px] items-center justify-end text-sm font-medium">
                         Page {table.getState().pagination.pageIndex + 1} of{' '}
                         {table.getPageCount()}
                     </div>
+                <div className="flex w-full items-center justify-between gap-2 sm:justify-center">
                     <div className="flex items-center space-x-2">
                         <Button
                             aria-label="Go to first page"

@@ -15,9 +15,10 @@ export default function DashboardLayout({
 }) {
     return (
         <>
-            <Header link="http://localhost:3000/admin/dashboard" items={adminItems} />
-            <div className="flex h-full">
+            <Header link="http://localhost:3000/admin/dashboard" items={adminItems}>
                 <Sidebar items={adminItems} />
+            </Header>
+            <div className="flex h-full">
                 <main className="w-full pt-16">{children}</main>
             </div>
         </>

@@ -8,6 +8,9 @@ import { NavItem } from "@/types";
 import axios from "axios"
 import Cookies from "js-cookie";
 import { useAuth } from "@/components/auth";
+import { useState } from "react";
+import { Sheet, SheetContent, SheetTrigger } from "../ui/sheet";
+import { MenuIcon } from "lucide-react";
 
 interface ISidebarProps {
     items: NavItem[]
@@ -15,6 +18,8 @@ interface ISidebarProps {
 
 export default function Sidebar({items}: ISidebarProps) {
     const auth = useAuth()
+
+    const [open, setOpen] = useState(false)
 
     const handleLogout = (e: any) => {
         try {
@@ -31,31 +36,60 @@ export default function Sidebar({items}: ISidebarProps) {
     }
 
     return (
-        <div>
-            <nav
-                className={cn(`relative hidden h-screen border-r pt-16 lg:block w-72 justify-between`)}
-            > 
-                <div className="space-y-4 py-4 h-full flex-col justify-between hidden lg:block">
-                    <div className="px-3 py-2">
-                        <div className="space-y-1">
-                            <DashboardNav items={items} />
+        <>
+            <Sheet open={open} onOpenChange={setOpen}>
+                <SheetTrigger asChild>
+                    <MenuIcon />
+                </SheetTrigger>
+                <SheetContent side="left" className="!px-5">
+                    <div className="space-y-4 py-4">
+                        <div className="px-3 py-2">
+                            <div className="space-y-1">
+                                <DashboardNav items={items} setOpen={setOpen} />
+                            </div>
+                        </div>
+                        <div className="px-3 py-2">
+                            <div className="space-y-1 absolute bottom-5">
+                                <Link
+                                        href={"/"}
+                                        onClick={handleLogout}
+                                    >
+                                    <span className="group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground text-red-500">
+                                        <Icons.logout className="mr-2 h-4 w-4" />
+                                        <span>Logout</span>
+                                    </span>
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                    <div className="px-3 py-2">
-                        <div className="space-y-1 absolute bottom-5">
-                            <Link
-                                    href="/"   
-                                    onClick={handleLogout}
-                                >
-                                <span className="group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground text-red-500">
-                                    <Icons.logout className="mr-2 h-4 w-4" />
-                                    <span>Logout</span>
-                                </span>
-                            </Link>
+                </SheetContent>
+            </Sheet>
+            {/* <div>
+                <nav
+                    className={cn(`relative hidden h-screen border-r pt-16 lg:block w-72 justify-between`)}
+                > 
+                    <div className="space-y-4 py-4 h-full flex-col justify-between hidden lg:block">
+                        <div className="px-3 py-2">
+                            <div className="space-y-1">
+                                <DashboardNav items={items} />
+                            </div>
+                        </div>
+                        <div className="px-3 py-2">
+                            <div className="space-y-1 absolute bottom-5">
+                                <Link
+                                        href="/"   
+                                        onClick={handleLogout}
+                                    >
+                                    <span className="group flex items-center rounded-md px-3 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground text-red-500">
+                                        <Icons.logout className="mr-2 h-4 w-4" />
+                                        <span>Logout</span>
+                                    </span>
+                                </Link>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </nav>
-        </div>
+                </nav>
+            </div> */}
+        </>
     );
 }
