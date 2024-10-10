@@ -2,6 +2,7 @@ import Sidebar from "@/components/layout/sidebar";
 import type { Metadata } from "next";
 import Header from "@/components/layout/header";
 import { karyawanItems } from "@/constants/data";
+import React from "react";
 
 export const metadata: Metadata = {
     title: "Presensi - Karyawan",

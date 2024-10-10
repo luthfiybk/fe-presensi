@@ -11,21 +11,29 @@ import {
     DropdownMenuShortcut,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useEffect, useState } from "react";
 // import { signOut, useSession } from "next-auth/react";
 
 export function UserNav() {
     // const { data: session } = useSession();
+    const [name, setName] = useState("")
+    const [divisi, setDivisi] = useState("")
+    const [number, setNumber] = useState("")
+
+    useEffect(() => {
+        
+        setName(localStorage.getItem("user")?.slice(1, -1) ?? "")
+        setDivisi(localStorage.getItem("divisi")?.slice(1, -1) ?? "")
+        setNumber(localStorage.getItem("no_karyawan")?.slice(1, -1) ?? "")
+    })
+
+    // console.log(name, "nama karyawan")
+
         return (
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" className="relative h-8 w-8 rounded-full">
-                        <Avatar className="h-8 w-8">
-                            {/* <AvatarImage
-                                src={session.user?.image ?? ""}
-                                alt={session.user?.name ?? ""}
-                            /> */}
-                            {/* <AvatarFallback>{session.user?.name?.[0]}</AvatarFallback> */}
-                        </Avatar>
+                    <Button variant="ghost" className="h-8 w-full font-bold">
+                        Hi, {name}
                     </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56" align="end" forceMount>
@@ -39,23 +47,23 @@ export function UserNav() {
                             </p>
                         </div>
                     </DropdownMenuLabel>
-                    <DropdownMenuSeparator />
+                    {/* <DropdownMenuSeparator /> */}
                     <DropdownMenuGroup>
                         <DropdownMenuItem>
-                            Profile
-                            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                            Nomor
+                            <DropdownMenuShortcut>{number}</DropdownMenuShortcut>
                         </DropdownMenuItem>
                         <DropdownMenuItem>
-                            Billing
-                            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
+                            Divisi
+                            <DropdownMenuShortcut>{divisi}</DropdownMenuShortcut>
                         </DropdownMenuItem>
-                        <DropdownMenuItem>
+                        {/* <DropdownMenuItem>
                             Settings
                             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
                         </DropdownMenuItem>
-                        <DropdownMenuItem>New Team</DropdownMenuItem>
+                        <DropdownMenuItem>New Team</DropdownMenuItem> */}
                     </DropdownMenuGroup>
-                    <DropdownMenuSeparator />
+                    {/* <DropdownMenuSeparator /> */}
                     {/* <DropdownMenuItem onClick={() => signOut()}>
                         Log out
                         <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>

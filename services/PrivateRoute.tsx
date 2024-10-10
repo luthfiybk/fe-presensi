@@ -11,6 +11,8 @@ interface PrivateRouteProps {
 const PrivateRoute: React.FC<PrivateRouteProps> = ({ element }) => {
     const { user, fetchUser } = useAuth()
     const router = useRouter()
+    const [ number, setNumber ] = React.useState("")
+    const [ div, setDiv ] = React.useState("")
 
     useEffect(() => {
         const fetchData = async () => {

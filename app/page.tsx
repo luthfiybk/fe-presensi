@@ -43,6 +43,7 @@ export default function Login() {
                         auth.login(token)
 
                         await auth.fetchUser()
+                        console.log(user, "user")
 
                         if(user.roleId === 1) {
                                 router.push("/admin/dashboard")
@@ -50,6 +51,8 @@ export default function Login() {
                         } else if (user.roleId === 2) {
                                 router.push("/karyawan")
                                 localStorage.setItem("user", JSON.stringify(user.nama))
+                                localStorage.setItem("no_karyawan", JSON.stringify(user.no_karyawan))
+                                localStorage.setItem("divisi", JSON.stringify(user.divisi))
                         } else if (user.roleId === 3) {
                                 router.push("/supervisor/dashboard")
                                 localStorage.setItem("user", JSON.stringify(user.nama))

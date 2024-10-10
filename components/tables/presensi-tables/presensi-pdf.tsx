@@ -13,7 +13,7 @@ export const handlePrintPresensi = ({ data }: PresensiPdfProps) => {
             body: [
                     [
                         {
-                            content: "PT Warung Pangan Indonesia",
+                            content: "PT Parikesit Brayan Nusantara",
                             styles: {
                             halign: "left",
                             fontSize: 15,

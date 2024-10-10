@@ -27,6 +27,12 @@ export const AuthProvider = ({ children }: Readonly<{ children: React.ReactNode 
         setUser(null);
         Cookies.remove("authToken");
         localStorage.removeItem("user");
+        if(localStorage.getItem("divisi")) {
+            localStorage.removeItem("divisi")
+        }
+        if(localStorage.getItem("no_karyawan")) {
+            localStorage.removeItem("no_karyawan")
+        }
     };
 
     const fetchUser = async () => {

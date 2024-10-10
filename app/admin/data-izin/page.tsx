@@ -5,6 +5,7 @@ import { IzinClient } from "@/components/tables/izin-tables/client"
 import axios from 'axios'
 import { usePathname } from "next/navigation"
 import { useState, useEffect } from "react"
+import React from "react"
 
 const breadcrumbItems = [{ title: "Izin Karyawan", link: "/admin/data-izin" }];
 type paramsProps = {

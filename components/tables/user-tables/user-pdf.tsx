@@ -13,7 +13,7 @@ export const handlePrintUsers = ({data}: UserPdfProps) => {
             body: [
                     [
                         {
-                            content: "PT Warung Pangan Indonesia",
+                            content: "PT Parikesit Brayan Nusantara",
                             styles: {
                             halign: "left",
                             fontSize: 15,

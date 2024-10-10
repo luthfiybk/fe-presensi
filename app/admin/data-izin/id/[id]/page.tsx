@@ -14,6 +14,7 @@ import { Dialog, DialogTrigger, DialogContent, DialogClose } from "@/components/
 import PDFReader from "@/components/pdf";
 import { useRouter } from "next/navigation";
 import { Edit } from "lucide-react";
+import React from "react";
 
 interface DialogProps {
     link: string

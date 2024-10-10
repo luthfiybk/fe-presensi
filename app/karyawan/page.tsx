@@ -11,6 +11,7 @@ import Cookies from "js-cookie";
 import toast from "react-hot-toast";
 import Webcam from "react-webcam"
 import { Card, CardContent } from "@/components/ui/card";
+import React from "react";
 
 // const breadcrumbItems = [{ title: "Presensi", link: "/karyawan/presensi" }];
 export default function PresensiPage() {
@@ -106,15 +107,22 @@ export default function PresensiPage() {
                     <Card className="border-black rounded-2xl">
                         <CardContent className="py-4">
                             <div className="flex flex-col gap-2 items-center" suppressHydrationWarning>
-                                <p>Jam</p>
-                                <Clock format={'HH:mm:ss'} ticking={true} timezone={'Asia/Jakarta'} noSsr={true}/>
-                                {/* <Gmaps width="400px" height="300px"/> */}
+                                <div className="flex flex-col gap-2">
+                                    <div className="flex flex-row items-center gap-2">
+                                        <p className="font-bold">Tanggal</p>
+                                        <Clock format={'dddd, DD MMMM YYYY'} ticking={true} timezone={'Asia/Jakarta'} noSsr={true} className="font-bold" />
+                                    </div>
+                                    <div className="flex flex-row items-center gap-9">
+                                        <p className="font-bold">Jam</p>
+                                        <Clock format={'HH:mm:ss'} ticking={true} timezone={'Asia/Jakarta'} noSsr={true} className="font-bold"/>
+                                    </div>
+                                </div>
                                 {img === null ?  (
                                     <>
                                         <Webcam 
                                             videoConstraints={videoConstraints}
                                             mirrored={true}
-                                            className="w-2/3"
+                                            className="w-full"
                                             screenshotFormat="image/jpeg"
                                             ref={webcamRef}
                                         />
@@ -130,7 +138,7 @@ export default function PresensiPage() {
                                     <input type="text" onChange={handleChange} value={longitude} className="w-2/3 bg-gray-200" id="longitude" hidden required/>
                                 </form>
                                 {check.length === 0 && img !== null ? (
-                                    <Button onClick={handleSubmit} className="w-full bg-green-500 hover:bg-green-400">
+                                    <Button onClick={handleSubmit} className="w-2/3 bg-green-500 hover:bg-green-400">
                                         Presensi Masuk
                                     </Button>
                                 ) : (

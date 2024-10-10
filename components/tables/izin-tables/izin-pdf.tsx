@@ -13,7 +13,7 @@ export const handlePrintIzin = ({ data }: IzinPdfProps) => {
             body: [
                     [
                         {
-                            content: "PT Warung Pangan Indonesia",
+                            content: "PT Pariket Brayan Nusantara",
                             styles: {
                             halign: "left",
                             fontSize: 15,
