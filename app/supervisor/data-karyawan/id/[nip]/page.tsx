@@ -76,16 +76,16 @@ export default function DetailKaryawanPage() {
     return (
         <>
             <div className="flex mt-10 mx-10">
-                <Label className="text-2xl"> Detail Data User </Label>
+                <Label className="text-2xl ml-16"> Detail Data User </Label>
             </div>
-            <div className="flex flex-col pt-10 items-center justify-center">
+            <div className="flex flex-col pt-10 pb-10 mt-5 items-center justify-center border-2 border-black rounded-lg mx-24">
                 <form onSubmit={handleSubmit} className="w-3/4">
                     <div className="flex flex-col gap-7">
                         <div className="flex justify-start">
                             <Label className="text-md w-1/5">
-                                NIP
+                                No Karyawan
                             </Label>
-                            <Label className="text-md">{karyawan?.[0]?.nip}</Label>
+                            <Label className="text-md">{karyawan?.[0]?.no_karyawan}</Label>
                         </div>
                         <div className="flex justify-start">
                             <Label className="text-md w-1/5">

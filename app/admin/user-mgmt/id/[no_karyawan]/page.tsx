@@ -67,8 +67,9 @@ export default function DetailUserPage() {
         setSelectedDivisiName(selectedDivisi?.nama || '')
     }
 
-    const handleUpdate = async () => {
+    const handleUpdate = async (e: any) => {
         try {
+            e.preventDefault()
             const data = {
                 no_karyawan: form.no_karyawan,
                 nama: form.nama,
@@ -90,14 +91,19 @@ export default function DetailUserPage() {
         fetchUser()
         fetchDivisi()
         fetchRole()
+
+        if(user[0]?.divisiId) {
+            setDivisiValue(user[0]?.divisiId)
+        }
+
     }, [])
 
     return (
         <>
             <div className="flex mt-10 mx-10">
-                <Label className="text-2xl"> Detail Data User </Label>
+                <Label className="text-2xl ml-16"> Detail Data User </Label>
             </div>
-            <div className="flex flex-col pt-10 items-center justify-center">
+            <div className="flex flex-col pt-10 pb-10 mt-10 items-center justify-center border-2 border-black rounded-lg mx-24">
                 <form className="w-3/4">
                     <div className="flex flex-col gap-7">
                         <div className="flex justify-center items-center gap-7">
@@ -122,10 +128,10 @@ export default function DetailUserPage() {
                             <Label className="text-md w-1/3 flex-start">
                                 Role
                             </Label>
-                            <RadioGroup name="roleId" defaultValue={user?.[0]?.roleId} onChange={handleChange}>
+                            <RadioGroup name="roleId" id="roleId" onValueChange={(value) => setForm({ ...form, roleId: parseInt(value) })} value={form.roleId ? form.roleId.toString() : ""}>
                                 {role.map((item: any) => (
                                     <div className="flex items-center space-x-2">
-                                        <RadioGroupItem id={item.id} value={item.id} />
+                                        <RadioGroupItem id={item.id} value={item.id} checked={form.roleId === item.id} />
                                         <Label htmlFor={item.id}>{item.nama_role}</Label>
                                     </div>
                                 ))}

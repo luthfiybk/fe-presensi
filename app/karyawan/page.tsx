@@ -122,7 +122,7 @@ export default function PresensiPage() {
                                         <Webcam 
                                             videoConstraints={videoConstraints}
                                             mirrored={true}
-                                            className="w-full"
+                                            className="w-3/4"
                                             screenshotFormat="image/jpeg"
                                             ref={webcamRef}
                                         />
