@@ -53,10 +53,12 @@ export function UserNav() {
                             Nomor
                             <DropdownMenuShortcut>{number}</DropdownMenuShortcut>
                         </DropdownMenuItem>
-                        <DropdownMenuItem>
-                            Divisi
-                            <DropdownMenuShortcut>{divisi}</DropdownMenuShortcut>
-                        </DropdownMenuItem>
+                        {divisi !== "" ? (
+                            <DropdownMenuItem>
+                                Divisi
+                                <DropdownMenuShortcut>{divisi}</DropdownMenuShortcut>
+                            </DropdownMenuItem>
+                        ) : (<></>)}
                         {/* <DropdownMenuItem>
                             Settings
                             <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
