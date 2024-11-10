@@ -44,7 +44,7 @@ export default function DialogComp({id, name, placeholder, defaultValue, update,
                         <Label className="text-lg">Edit {title}</Label>
                     </DialogHeader>
                     <div className="flex flex-col items-center space-y-5">
-                        <Label>Edit Nama {title}</Label>
+                        {/* <Label>{title}</Label> */}
                         <Input name={name} id={id} placeholder={placeholder} defaultValue={defaultValue} onChange={changes} />
                         {title === 'Titik' && (
                             <>

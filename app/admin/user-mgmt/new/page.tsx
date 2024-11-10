@@ -88,9 +88,9 @@ export default function DetailUserPage() {
     return (
         <>
             <div className="flex mt-10 mx-10">
-                <Label className="text-2xl"> Tambah User </Label>
+                <Label className="text-2xl ml-16"> Tambah User </Label>
             </div>
-            <div className="flex flex-col pt-10 items-center justify-center">
+            <div className="flex flex-col pt-10 pb-10 mt-5 items-center justify-center shadow-lg rounded-lg mx-24">
                 <form className="w-3/4" >
                     <div className="flex flex-col gap-7">
                         <div className="flex justify-center items-center gap-7">

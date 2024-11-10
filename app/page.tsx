@@ -71,39 +71,40 @@ export default function Login() {
 
         
         return (
-                <div className="relative h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
-                    <div className="relative hidden h-full flex-col bg-white text-white lg:flex dark:border-r">
-                        <img src="assets/pbn.jpeg" className="flex m-auto" />
-                    </div>
-                    <div className="flex h-full items-center p-4 lg:p-8">
-                        <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
-                            <div className="flex flex-col space-y-2 text-center">
-                                <h1 className="text-2xl font-semibold tracking-tight">
-                                    Login
-                                </h1>
-                                <p className="text-sm text-muted-foreground">
-                                    Selamat datang, silahkan masukkan Email dan Password
-                                </p>
-                            </div>
-                            <div>
-                                <form onSubmit={handleSubmit}>
-                                    <div className="grid w-full items-center gap-4">
-                                        <div className="flex flex-col space-y-1.5">
-                                            <Label htmlFor="identifier">Email</Label>
-                                            <Input name="identifier" onChange={handleChange} id="identifier" placeholder="" />
-                                        </div>
-                                        <div className="flex flex-col space-y-1.5">
-                                            <Label htmlFor="password">Password</Label>
-                                            <Input type="password" onChange={handleChange} id="password" name="password" placeholder="" />
-                                        </div>
-                                    </div>
-                                </form>
-                                <Button onClick={handleSubmit} className="w-full mt-5 bg-[#0370B4]">
-                                    Login
-                                </Button>
-                            </div>
-                        </div>
-                    </div>
+            <div className="relative h-screen flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-2 lg:px-0">
+            <div className="relative hidden h-full flex-col bg-white text-white lg:flex dark:border-r">
+                <img src="assets/pbn.jpeg" className="flex m-auto" />
             </div>
+            <div className="flex h-full items-center justify-center">
+                <div className="mx-auto flex w-auto h-auto flex-col justify-center space-y-6 shadow-md border rounded-lg p-10">
+                    <div className="flex flex-col space-y-4 text-center">
+                        <h1 className="text-2xl font-semibold tracking-tight">
+                            Login
+                        </h1>
+                        <p className="text-sm text-muted-foreground">
+                            Selamat datang, silahkan masukkan Email dan Password
+                        </p>
+                    </div>
+                    <div>
+                        <form onSubmit={handleSubmit}>
+                            <div className="grid w-full items-center gap-4">
+                                <div className="flex flex-col space-y-1.5">
+                                    <Label htmlFor="identifier">Email</Label>
+                                    <Input name="identifier" onChange={handleChange} id="identifier" placeholder="" />
+                                </div>
+                                <div className="flex flex-col space-y-1.5">
+                                    <Label htmlFor="password">Password</Label>
+                                    <Input type="password" onChange={handleChange} id="password" name="password" placeholder="" />
+                                </div>
+                            </div>
+                        </form>
+                        <Button onClick={handleSubmit} className="w-full mt-5 bg-[#0370B4]">
+                            Login
+                        </Button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
         );
 }

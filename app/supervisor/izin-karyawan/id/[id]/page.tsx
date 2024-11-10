@@ -105,11 +105,9 @@ export default function DetailIzinPage() {
     return (
         <>
             <div className="flex mt-10 mx-10">
-                <Label className="text-2xl">
-                    Detail Izin
-                </Label>
+                <Label className="text-2xl ml-16"> Detail Izin </Label>
             </div>
-            <div className="flex flex-col pt-10 items-start mx-10">
+            <div className="flex flex-col pt-10 pb-10 mt-5 items-center justify-center shadow-lg rounded-lg mx-24">
                 <div className="flex flex-col gap-7 w-3/4">
                     <div className="flex justify-start">
                         <Label className="text-md w-1/2">

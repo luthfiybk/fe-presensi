@@ -65,7 +65,7 @@ export default function AddDialog({ title, name, id }: AddDialogProps ) {
             <DialogContent>
                 <DialogHeader>
                     <Label className="text-lg text-center">
-                        Nama {title} Baru
+                        Tambah {title}
                     </Label>
                 </DialogHeader>
                 <div className="flex flex-col space-y-4">
