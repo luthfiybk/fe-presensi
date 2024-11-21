@@ -44,9 +44,9 @@ export default function DetailPresensiPage() {
                 <div className="flex flex-col gap-7 w-3/4">
                     <div className="flex justify-start">
                         <Label className="text-md w-1/2">
-                            NIP
+                            No Karyawan
                         </Label>
-                        <Label className="text-md">{presensi?.[0]?.nip}</Label>
+                        <Label className="text-md">{presensi?.[0]?.no_karyawan}</Label>
                     </div>
                     <div className="flex justify-start">
                         <Label className="text-md w-1/2">

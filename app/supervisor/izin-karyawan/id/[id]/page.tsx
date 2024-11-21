@@ -104,55 +104,57 @@ export default function DetailIzinPage() {
 
     return (
         <>
-            <div className="flex mt-10 mx-10">
-                <Label className="text-2xl ml-16"> Detail Izin </Label>
+    <div className="flex mt-10 mx-10">
+        <Label className="text-2xl ml-16"> Detail Izin </Label>
+    </div>
+    <div className="flex flex-col pt-10 pb-10 mt-5 items-center justify-center shadow-lg rounded-lg mx-24">
+        <div className="flex flex-col gap-7 w-3/4">
+            <div className="flex justify-start">
+                <Label className="text-md w-1/2">
+                    No Karyawan
+                </Label>
+                <Label className="text-md">{izin?.[0]?.no_karyawan}</Label>
             </div>
-            <div className="flex flex-col pt-10 pb-10 mt-5 items-center justify-center shadow-lg rounded-lg mx-24">
-                <div className="flex flex-col gap-7 w-3/4">
-                    <div className="flex justify-start">
-                        <Label className="text-md w-1/2">
-                            No Karyawan
-                        </Label>
-                        <Label className="text-md">{izin?.[0]?.no_karyawan}</Label>
-                    </div>
-                    <div className="flex justify-start">
-                        <Label className="text-md w-1/2">
-                            Nama
-                        </Label>
-                        <Label className="text-md">{izin?.[0]?.nama}</Label>
-                    </div>
-                    <div className="flex justify-start">
-                        <Label className="text-md w-1/2">
-                            Tanggal Izin
-                        </Label>
-                        <Label className="text-md">{izin?.[0]?.tanggal}</Label>
-                    </div>
-                    <div className="flex justify-start">
-                        <Label className="text-md w-1/2">
-                            Keterangan
-                        </Label>
-                        <Label className="text-md">{izin?.[0]?.keterangan}</Label>
-                    </div>
-                    <div className="flex justify-start">
-                        <Label className="text-md w-1/2">
-                            File
-                        </Label>
-                        <Modal link={izin?.[0]?.file_link} />
-                    </div>
-                </div>
+            <div className="flex justify-start">
+                <Label className="text-md w-1/2">
+                    Nama
+                </Label>
+                <Label className="text-md">{izin?.[0]?.nama}</Label>
             </div>
-            {izin?.[0]?.statusId === 4 && (
-                <div className="flex flex-row mx-20 mt-10 space-x-5">
-                    <Button onClick={handleApprove} className="bg-green-500 hover:bg-green-400">
-                        <Check className="mr-2" />
-                        Setujui
-                    </Button>
-                    <Button onClick={handleReject} className="bg-red-500 hover:bg-red-400">
-                        <X className="mr-2" />
-                        Tolak
-                    </Button>
-                </div>
-            )}
-        </>
+            <div className="flex justify-start">
+                <Label className="text-md w-1/2">
+                    Tanggal Izin
+                </Label>
+                <Label className="text-md">{izin?.[0]?.tanggal}</Label>
+            </div>
+            <div className="flex justify-start">
+                <Label className="text-md w-1/2">
+                    Keterangan
+                </Label>
+                <Label className="text-md">{izin?.[0]?.keterangan}</Label>
+            </div>
+            <div className="flex justify-start">
+                <Label className="text-md w-1/2">
+                    File
+                </Label>
+                <Modal link={izin?.[0]?.file_link} />
+            </div>
+        </div>
+        {izin?.[0]?.statusId === 4 && (
+            <div className="flex flex-row ml-80 mt-7 space-x-5 w-full">
+                <Button onClick={handleApprove} className="bg-green-500 hover:bg-green-400">
+                    <Check className="mr-2" />
+                    Setujui
+                </Button>
+                <Button onClick={handleReject} className="bg-red-500 hover:bg-red-400">
+                    <X className="mr-2" />
+                    Tolak
+                </Button>
+            </div>
+        )}
+    </div>
+</>
+
+
     )
 }
