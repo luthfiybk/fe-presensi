@@ -17,7 +17,7 @@ export type Izin = {
     keterangan: string;
     tanggal: string;
     status: string;
-
+    file:string;
 };
 
 export type Presensi = {
@@ -28,6 +28,7 @@ export type Presensi = {
     jamKeluar: string;
     latitude: number;
     longitude: number;
+    photo: string;
     status: string;
 };
 
@@ -88,6 +89,18 @@ export const karyawanItems: NavItem[] = [
         href: "/karyawan/pengajuan-izin",
         icon: "page",
         label: "Pengajuan Izin",
+    },
+    {
+        title: "Rekap Presensi",
+        href: "/karyawan/rekap-presensi",
+        icon: "page",
+        label: "Rekap Presensi",
+    },
+    {
+        title: "Rekap Izin",
+        href: "/karyawan/rekap-izin",
+        icon: "page",
+        label: "Rekap Izin",
     }
 ];
 

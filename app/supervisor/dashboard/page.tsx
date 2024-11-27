@@ -12,10 +12,17 @@ import Clock from 'react-live-clock';
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
+import dynamic from 'next/dynamic';
+import 'chart.js/auto';
+const Bar = dynamic(() => import('react-chartjs-2').then((mod) => mod.Bar), {
+  ssr: false,
+});
 
 export default function DashboardPage() {
     const [response, setResponse] = useState([])
     const [name, setName] = useState('')
+    const [hadir, setHadir] = useState("")
+    const [izin, setIzin] = useState("")
 
     const fetchResponse = async () => {
         try {
@@ -26,11 +33,31 @@ export default function DashboardPage() {
             
             })
             const data = response.data
+            setHadir(data[1].total)
+            setIzin(data[2].total)
             setResponse(data)
         } catch (error) {
             console.error("Fetch dashboard data error", error)
         }
     }
+
+    const data = {
+        labels: ['Hadir', 'Izin'],
+        datasets: [
+          {
+            label: 'Chart',
+            data: [parseInt(hadir), parseInt(izin)],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+            ],
+                borderWidth: 1,
+            },
+        ],
+      };
 
     useEffect(() => {
         fetchResponse()
@@ -62,6 +89,9 @@ export default function DashboardPage() {
                             ))}
                         </div>
                     </TabsContent>
+                    <div className="w-full m-auto" style={{ width: '700px', height: '700px' }}>
+                        <Bar className="flex w-full justify-center" data={data} />
+                    </div>
                 </Tabs>
             </div>
         </ScrollArea>

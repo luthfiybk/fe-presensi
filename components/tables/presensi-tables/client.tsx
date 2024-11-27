@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { Presensi } from "@/constants/data";
 import { Plus } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
-import { createPresensiColumns } from "../columns";
+import { createPresensiColumns, createRekapPresensiColumns } from "../columns";
 import { Heading } from "@/components/ui/heading";
 import { Icons } from "@/components/icons";
 import { handlePrintPresensi } from "./presensi-pdf";
@@ -25,9 +25,12 @@ interface ProductsClientProps {
 export const PresensiClient = ({ data, path, searchParams, total_data }: ProductsClientProps) => {
     const router = useRouter();
     const presensiColumns = createPresensiColumns(path);
+    const rekapPresensiColumns = createRekapPresensiColumns()
     const downloadPDF = () => {
         handlePrintPresensi({ data });
     }
+
+    const pathname = usePathname()
 
     const page = Number(searchParams.page) || 1;
     const limit = Number(searchParams.limit) || 10;
@@ -36,7 +39,7 @@ export const PresensiClient = ({ data, path, searchParams, total_data }: Product
     const statusId = searchParams.status || '';
     const date = searchParams.date || '';
 
-    const total_pages = Math.ceil(total_data / limit);
+    const total_pages = Math.ceil((total_data as number)  / limit);
 
     const [status, setStatus] = useState([])
     const  [divisi, setDivisi] = useState([])
@@ -84,7 +87,7 @@ export const PresensiClient = ({ data, path, searchParams, total_data }: Product
             <Separator />
             <DataTable 
                 searchKey="nama" 
-                columns={presensiColumns}
+                columns={pathname === ('/karyawan/rekap-presensi') ? rekapPresensiColumns : presensiColumns}
                 totalData={total_data}
                 pageCount={total_pages}
                 pageNo={page}

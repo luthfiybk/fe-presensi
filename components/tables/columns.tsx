@@ -13,6 +13,7 @@ import {
 } from "@/constants/data";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "../ui/badge";
+import dynamic from "next/dynamic";
 
 export const createUserColumns = (dynamicLink: string) => {
     const userColumns: ColumnDef<User>[] = [
@@ -151,6 +152,45 @@ export const createPresensiColumns = (dynamicLink: string) => {
 
     return presensiColumns
 
+}
+
+export const createRekapPresensiColumns = () => {
+    const rekapPresensiColumns: ColumnDef<Presensi>[] = [
+        {
+            accessorKey: "tanggal",
+            header: "TANGGAL"
+        },
+        {
+            accessorKey: "jamMasuk",
+            header: "JAM MASUK"
+        },
+        {
+            accessorKey: "status",
+            header: "STATUS",
+            cell: ({ row }: any) => <Badge variant="secondary" className={row.original.statusId === 1 ? `bg-green-500 text-white hover:bg-green-500` : row.original.statusId === 3 ? `bg-red-500 text-white hover:bg-red-500` : row.original.statusId === 2 ? `bg-yellow-500 text-white hover:bg-yellow-500` : `bg-blue-500 text-white hover:bg-blue-500`} >{row.original.status}</Badge>,
+        }
+    ]
+
+    return rekapPresensiColumns
+}
+export const createRekapIzinColumns = () => {
+    const rekapIzinColumns: ColumnDef<Izin>[] = [
+        {
+            accessorKey: "tanggal",
+            header: "TANGGAL"
+        },
+        {
+            accessorKey: "keterangan",
+            header: "KETERANGAN"
+        },
+        {
+            accessorKey: "status",
+            header: "STATUS",
+            cell: ({ row }: any) => <Badge variant="secondary" className={row.original.statusId === 4 ? `text-black` : row.original.statusId === 5 ? `bg-green-500 text-white hover:bg-green-500` : `bg-red-500 text-white hover:bg-red-500`} >{row.original.status}</Badge>,
+        }
+    ]
+
+    return rekapIzinColumns
 }
 
 export const createIzinColumns = (dynamicLink: string) => {

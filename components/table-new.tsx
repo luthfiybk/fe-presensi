@@ -194,6 +194,7 @@ export function DataTable<TData, TValue>({
     return (
         <>
             <div className="flex space-x-2">
+                {!(pathname === '/karyawan/rekap-izin' || pathname === '/karyawan/rekap-presensi') && (
                 <Input
                     placeholder={`Cari ${searchKey} ${title}...`}
                     value={(table.getColumn(searchKey)?.getFilterValue() as string) ?? ''}
@@ -201,7 +202,7 @@ export function DataTable<TData, TValue>({
                         table.getColumn(searchKey)?.setFilterValue(event.target.value)
                     }
                     className="w-full md:max-w-sm"
-                />
+                />)}
                 {pathname.includes('user-mgmt') && (
                 <>
                     <Select
@@ -222,7 +223,7 @@ export function DataTable<TData, TValue>({
                     </Select>
                   </>
                 )}
-                {pathname.includes('user-mgmt') || pathname.includes('admin/data-izin') || pathname.includes('admin/data-presensi') ? (
+                {pathname.includes('user-mgmt') || pathname.includes('admin/data-izin') || pathname.includes('admin/data-presensi') || !(pathname === '/karyawan/rekap-izin' || pathname === '/karyawan/rekap-presensi') ? (
                         <Select
                             value={selectedDivision ?? ''}
                             onValueChange={(value) => setSelectedDivision(value === '' ? null : value)}
@@ -240,7 +241,7 @@ export function DataTable<TData, TValue>({
                             </SelectContent>
                         </Select>
                 ) : (<> </>)}
-                {pathname.includes('izin') || pathname.includes('presensi') ? (
+                {pathname === ('/admin/data-izin') || pathname === ('/admin/data-presensi') || pathname === ('/supervisor/izin-karyawan') || pathname === ('/supervisor/presensi-karyawan')  ? (
                   <>
                     <Input
                         type="date"

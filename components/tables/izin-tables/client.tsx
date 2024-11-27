@@ -4,8 +4,8 @@ import { Button } from "@/components/ui/button";
 import { DataTable } from "@/components/table-new";
 import { Separator } from "@/components/ui/separator";
 import { Izin } from "@/constants/data";
-import { useRouter } from "next/navigation";
-import { createIzinColumns } from "../columns";
+import { usePathname, useRouter } from "next/navigation";
+import { createIzinColumns, createRekapIzinColumns } from "../columns";
 import { Heading } from "@/components/ui/heading";
 import { Icons } from "@/components/icons";
 import { handlePrintIzin } from "./izin-pdf";
@@ -18,14 +18,18 @@ interface ProductsClientProps {
     searchParams: {
         [key: string]: string | string[] | undefined;
     }
-    total_data: number
+    total_data?: number
 }
 
 export const IzinClient = ({ data, path, searchParams, total_data }: ProductsClientProps) => {
     const izinColumns = createIzinColumns(path)
+    const rekapIzinColumns = createRekapIzinColumns()
+
     const downloadPDF = () => {
         handlePrintIzin({ data });
     };
+
+    const pathname = usePathname()
 
     const page = Number(searchParams.page) || 1;
     const limit = Number(searchParams.limit) || 10;
@@ -33,7 +37,7 @@ export const IzinClient = ({ data, path, searchParams, total_data }: ProductsCli
     const name = searchParams.search || '';
     const statusId = searchParams.status || '';
     
-    const total_pages = Math.ceil(total_data / limit);
+    const total_pages = Math.ceil(total_data as number / limit);
 
     const [status, setStatus] = useState([])
     const [divisi, setDivisi] = useState([])
@@ -80,12 +84,12 @@ export const IzinClient = ({ data, path, searchParams, total_data }: ProductsCli
             <Separator />
             <DataTable 
                 searchKey="nama" 
-                columns={izinColumns} 
+                columns={pathname === ('/karyawan/rekap-izin') ? rekapIzinColumns : izinColumns} 
                 data={data} 
                 pageNo={page}
                 status={status}
                 divisions={divisi}
-                totalData={total_data}
+                totalData={total_data as number}
                 pageCount={total_pages}
             />
         </>
