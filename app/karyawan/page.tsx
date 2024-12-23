@@ -105,20 +105,23 @@ export default function PresensiPage() {
     e.preventDefault()
 
     try {
-      const response = await axios.put(process.env.NEXT_PUBLIC_API_URL + "/presensi/pulang", {
+      const response = await axios.put(process.env.NEXT_PUBLIC_API_URL + "/presensi/pulang", {}, {
         headers: {
           Authorization: `Bearer ${Cookies.get("authToken")}`,
         }
       })
 
-      if (response.status === 201) {
-        toast.success("Presensi pulang berhasil")
-      }
+      console.log(response)
+
+      location.reload()
+      toast.success("Presensi pulang berhasil")
     } catch (error: any) {
       toast.error("Presensi pulang gagal")
       console.error(error.message)
     }
   }
+
+  console.log(cekIzin.length, 'izin')
 
   useEffect(() => {
     checkPresensi();
@@ -159,8 +162,8 @@ export default function PresensiPage() {
                     />
                   </div>
                 </div>
-                {waktu >= "8" && waktu < "17" ? (
-                <div>
+                {waktu >= "21" && waktu < "22" && cekPresensi.length === 0 && cekIzin.length === 0 ? (
+                <div className="flex flex-col items-center">
                   {img === null ? (
                     <>
                       <Webcam
@@ -194,19 +197,19 @@ export default function PresensiPage() {
                       hidden
                       readOnly
                     />
-                    {(!isPresensiSubmitted && cekPresensi?.[0]?.jamMasuk === "" && cekIzin.length === 0 && img !== null) && (
-                      <Button type="submit" className="w-2/3 bg-green-500 hover:bg-green-400">
+                    {(!isPresensiSubmitted && img !== null) && (
+                      <Button type="submit" className=" flex w-full bg-green-500 hover:bg-green-400 mt-2">
                         Presensi Masuk
                       </Button>
                     )}
                   </form>
                 </div>
-              ) : waktu >= "17" && waktu <= "24" && cekPresensi?.[0]?.jamPulang === "" && cekIzin.length === 0 ? (
+              ) : waktu >= "22" && waktu <= "24" && cekPresensi?.[0]?.jamPulang === null && cekIzin.length === 0 ? (
                 <Button onClick={handlePulang} className="w-2/3 bg-green-500 hover:bg-green-400">
                   Presensi Pulang
                 </Button>
               ) : (
-                <div>Anda sudah melakukan presensi</div>
+                <div></div>
               )}
               </div>
             </CardContent>
