@@ -162,7 +162,7 @@ export default function PresensiPage() {
                     />
                   </div>
                 </div>
-                {waktu >= "21" && waktu < "22" && cekPresensi.length === 0 && cekIzin.length === 0 ? (
+                {waktu >= "06" && waktu < "17" && cekPresensi.length === 0 && cekIzin.length === 0 ? (
                 <div className="flex flex-col items-center">
                   {img === null ? (
                     <>
@@ -204,7 +204,7 @@ export default function PresensiPage() {
                     )}
                   </form>
                 </div>
-              ) : waktu >= "22" && waktu <= "24" && cekPresensi?.[0]?.jamPulang === null && cekIzin.length === 0 ? (
+              ) : waktu >= "17" && waktu <= "24" && cekPresensi?.[0]?.jamPulang === null && cekIzin.length === 0 ? (
                 <Button onClick={handlePulang} className="w-2/3 bg-green-500 hover:bg-green-400">
                   Presensi Pulang
                 </Button>
