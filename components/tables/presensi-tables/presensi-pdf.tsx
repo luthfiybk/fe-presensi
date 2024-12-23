@@ -77,6 +77,7 @@ export const handlePrintPresensi = ({ data }: PresensiPdfProps) => {
                                 "Nama",
                                 "Tanggal",
                                 "Jam Masuk",
+                                "Jam Pulang",
                                 "Keterangan",
                             ],
                         ],
@@ -85,6 +86,7 @@ export const handlePrintPresensi = ({ data }: PresensiPdfProps) => {
                                 item.nama,
                                 item.tanggal,
                                 item.jamMasuk,
+                                item.jamPulang,
                                 item.status
                         ]),
                     theme: "plain",

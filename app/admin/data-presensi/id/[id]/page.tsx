@@ -68,6 +68,12 @@ export default function DetailPresensiPage() {
                     </div>
                     <div className="flex justify-start">
                         <Label className="text-md w-1/2">
+                            Jam Pulang
+                        </Label>
+                        <Label className="text-md">{presensi?.[0]?.jamPulang}</Label>
+                    </div>
+                    <div className="flex justify-start">
+                        <Label className="text-md w-1/2">
                             Status
                         </Label>
                         <Badge className={presensi?.[0]?.status === "Tepat Waktu" ? "bg-green-500" : presensi?.[0]?.status === "Terlambat" ? "bg-yellow-500" : 'bg-red-500'}>{presensi?.[0]?.status}</Badge>

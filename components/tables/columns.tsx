@@ -139,6 +139,36 @@ export const createPresensiColumns = (dynamicLink: string) => {
             header: "JAM MASUK",
         },
         {
+            accessorKey: "jamPulang",
+            header: "JAM PULANG",
+        },
+        {
+            header: "TOTAL JAM KERJA",
+            id: "total_jam_kerja",
+            cell: ({ row }: any) => {
+                // Konversi waktu dari string ke objek Date
+                const jamMasuk = new Date(`1970-01-01T${row.original.jamMasuk}`);
+                const jamPulang = new Date(`1970-01-01T${row.original.jamPulang}`);
+        
+                // Hitung selisih waktu dalam milidetik
+                const selisihMs = jamPulang.getTime() - jamMasuk.getTime();
+        
+                // Konversi milidetik ke jam, menit, dan detik
+                const totalDetik = Math.floor(selisihMs / 1000);
+                const jam = Math.floor(totalDetik / 3600);
+                const menit = Math.floor((totalDetik % 3600) / 60);
+                const detik = totalDetik % 60;
+        
+                // Tampilkan hasil dalam format "X jam Y menit Z detik"
+                return (
+                    <>
+                        {jam} jam {menit} menit {detik} detik
+                    </>
+                );
+            }
+        }
+        ,
+        {
             accessorKey: "status",
             header: "STATUS",
             cell: ({ row }: any) => <Badge variant="secondary" className={row.original.statusId === 1 ? `bg-green-500 text-white hover:bg-green-500` : row.original.statusId === 3 ? `bg-red-500 text-white hover:bg-red-500` : row.original.statusId === 2 ? `bg-yellow-500 text-white hover:bg-yellow-500` : `bg-blue-500 text-white hover:bg-blue-500`} >{row.original.status}</Badge>,

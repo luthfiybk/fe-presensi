@@ -25,7 +25,7 @@ export type Presensi = {
     nama: string;
     tanggal: string;
     jamMasuk: string;
-    jamKeluar: string;
+    jamPulang: string;
     latitude: number;
     longitude: number;
     photo: string;
