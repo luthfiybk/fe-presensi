@@ -7,6 +7,23 @@ interface PresensiPdfProps {
 }
 
 export const handlePrintPresensi = ({ data }: PresensiPdfProps) => {
+    const totalJamKerja = (jamMasuk: string, jamPulang: string) => {
+        const jam_masuk = new Date(`1970-01-01T${jamMasuk}`);
+        const jam_pulang = new Date(`1970-01-01T${jamPulang}`);
+        
+        // Hitung selisih waktu dalam milidetik
+        const selisihMs = jam_pulang.getTime() - jam_masuk.getTime();
+        
+        // Konversi milidetik ke jam, menit, dan detik
+        const totalDetik = Math.floor(selisihMs / 1000);
+        const jam = Math.floor(totalDetik / 3600);
+        const menit = Math.floor((totalDetik % 3600) / 60);
+        const detik = totalDetik % 60;
+        
+        // Tampilkan hasil dalam format "X jam Y menit Z detik"
+        return `${jam} jam ${menit} menit ${detik} detik`
+                        
+    }
     const doc = new jsPDF();
     
         autoTable(doc, {
@@ -78,6 +95,7 @@ export const handlePrintPresensi = ({ data }: PresensiPdfProps) => {
                                 "Tanggal",
                                 "Jam Masuk",
                                 "Jam Pulang",
+                                "Total Jam Kerja",
                                 "Keterangan",
                             ],
                         ],
@@ -87,6 +105,7 @@ export const handlePrintPresensi = ({ data }: PresensiPdfProps) => {
                                 item.tanggal,
                                 item.jamMasuk,
                                 item.jamPulang,
+                                totalJamKerja(item.jamMasuk, item.jamPulang),
                                 item.status
                         ]),
                     theme: "plain",
